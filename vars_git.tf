@@ -1,7 +1,6 @@
 
 variable "git_password" {}
 
-//gitlab.com/rotemjac/santidhamma-website.git
 variable "git_repo_path" {}
 
 ## 'element' is used in order to take the item 0 (for example) from the result array of the split:
