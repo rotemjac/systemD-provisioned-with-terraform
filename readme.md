@@ -24,7 +24,7 @@ Steps to use this repo:
 5. Enter your repo url (after the https://).
 
 6. When ready you can connect with ssh (droplet IP is printed as output to terminal):
-ssh -i </path/to/your/id_rsa> root@<droplet-public-ip>
+```ssh -i </path/to/your/id_rsa> root@<droplet-public-ip>```
 
 
 ----------------------------------------
