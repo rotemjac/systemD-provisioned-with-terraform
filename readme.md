@@ -17,7 +17,7 @@ Steps to use this repo:
 2. Create an ssh key for the droplet
 
 3. Run the script with the -p (path)' and -a (action) arguments':
-./run_tf.sh -p </path/to/your/ssh_keys> -a <terraform_action: init/plan/apply/destroy>
+```./run_tf.sh -p </path/to/your/ssh_keys> -a <terraform_action: init/plan/apply/destroy>```
 
 4. Enter your repo password.
 
@@ -45,6 +45,7 @@ If you want to break them into smaller distinguish scripts:
    Based on this:
    https://www.terraform.io/docs/provisioners/remote-exec.html#scripts
 
+```
     // copy our example script to the server (you can use 'content' instead of source and use a template file)
     provisioner "file" {
       source      = "script.sh"
@@ -58,11 +59,12 @@ If you want to break them into smaller distinguish scripts:
         "/tmp/script.sh args",
       ]
     }
+```
 
 3. You can build a template file (but a basic or empty one one) like we saw above as resource (or data - it doesn't matter) and pass variables to it and append scripts into it with "null_resource".
    At the end pass it to the remote machine and execute with "remote-exec":
 
-
+```
 resource "null_resource" "step1" {
   provisioner "local-exec" {
    command = <<EOF
@@ -77,7 +79,7 @@ resource "null_resource" "step2" {
    command = "echo ${replace(template_file.json.rendered, "\n", "")} > test.json"
   }
 }
-
+```
 
 
 
