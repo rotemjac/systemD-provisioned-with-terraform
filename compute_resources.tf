@@ -17,7 +17,12 @@ resource "digitalocean_droplet" "web-server" {
       timeout = "5m"
     }
 
-    inline = <<EOF
+    inline =
+
+    ## For test - try a simple nginx server first
+    #["apt-get update -y", "apt-get install -y nginx > /tmp/nginx.log"]
+
+    <<EOF
         ${data.template_file.script_0.rendered}
         ${data.template_file.script_1.rendered}
         ${data.template_file.script_2.rendered}
